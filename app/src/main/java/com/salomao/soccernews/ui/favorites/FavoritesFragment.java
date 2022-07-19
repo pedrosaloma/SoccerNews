@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.salomao.soccernews.MainActivity;
 import com.salomao.soccernews.databinding.FragmentFavoritesBinding;
-import com.salomao.soccernews.databinding.FragmentFavoritesBinding;
+import com.salomao.soccernews.domain.News;
+import com.salomao.soccernews.ui.adapter.NewsAdapter;
+
+import java.util.List;
 
 public class FavoritesFragment extends Fragment {
 
@@ -23,11 +27,25 @@ public class FavoritesFragment extends Fragment {
                 new ViewModelProvider(this).get(FavoritesViewModel.class);
 
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textFavorites;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+
+
+        findFavoriteNews();
+
+        return binding.getRoot();
+    }
+
+    private void findFavoriteNews() {
+        MainActivity activity = (MainActivity) getActivity();
+        List<News> favoriteNews = null;
+        if (activity != null) {
+            favoriteNews = activity.getDb().newsDao().loadFavoriteNews();
+            binding.ReciclerViewFavoriteNews.setLayoutManager(new LinearLayoutManager(getContext()));
+            binding.ReciclerViewFavoriteNews.setAdapter(new NewsAdapter(favoriteNews, updatedNews -> {
+                activity.getDb().newsDao().save(updatedNews);
+                findFavoriteNews();
+            }));
+        }
     }
 
     @Override

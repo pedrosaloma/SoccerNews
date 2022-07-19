@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_16dp">
+
+    <ImageView
+        android:id="@+id/ImageViewNews"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/default_160dp"
+        android:contentDescription="@string/imagem_ilustrativa_da_reportagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:src="@color/teal_200"/>
+
+    <TextView
+        android:id="@+id/TextViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_16dp"
+        android:layout_marginTop="@dimen/default_margin_16dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageViewNews" />
+
+    <TextView
+        android:id="@+id/textViewCorpo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_16dp"
+        android:layout_marginTop="@dimen/default_margin_16dp"
+        android:text="TextViewCorpo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_16dp"
+        android:layout_marginTop="@dimen/default_margin_16dp"
+        android:layout_marginBottom="@dimen/default_margin_16dp"
+        android:text="@string/abrir_link"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCorpo" />
+
+    <ImageView
+        android:id="@+id/IconFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin_16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/IconShare"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    <ImageView
+        android:id="@+id/IconShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin_16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        app:srcCompat="@drawable/ic_share_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

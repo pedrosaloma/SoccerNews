@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Soccer News</string>
-    <string name="title_news">News</string>
-    <string name="title_favorites">Favorites</string>
     <string name="abrir_link">Abrir Link</string>
     <string name="imagem_ilustrativa_da_reportagem">imagem_ilustrativa_da_reportagem</string>
 </resources>
